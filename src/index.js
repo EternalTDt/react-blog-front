@@ -9,13 +9,11 @@ import Footer from './components/Footer';
 
 const routing = (
   <Router>
-    <React.StrictMode>
       <Header />
       <Routes>
-        <Route exact path = "/" component = {App} />
+        <Route exact path = "/" element={<App />} />
       </Routes>
       <Footer />
-    </React.StrictMode>
   </Router>
 );
 
