@@ -3,13 +3,16 @@ from rest_framework import generics
 from rest_framework.serializers import Serializer
 from blog.models import Post
 from .serializers import PostSerializer
+from rest_framework.permissions import IsAdminUser, DjangoModelPermissions
 
 class PostListView(generics.ListCreateAPIView):
+    permission_classes = [DjangoModelPermissions]
     queryset = Post.postobjects.all()
     serializer_class = PostSerializer
 
 
 class PostDetailView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [DjangoModelPermissions]
     queryset = Post.objects.all()
     serializer_class = PostSerializer
 
